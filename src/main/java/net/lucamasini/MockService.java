@@ -20,7 +20,7 @@ public interface MockService {
     @Path("/{status}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    Uni<ResponseFromMock> callMock(@PathParam("status") int status, ResponseFromMock body);
+    Uni<ResponseFromMock> callMock(@PathParam("status") int status, ResponseFromMock body) throws MyCustomException;
 
     @POST
     @Path("/{status}")

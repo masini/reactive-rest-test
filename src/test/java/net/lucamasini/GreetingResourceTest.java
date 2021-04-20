@@ -18,7 +18,6 @@ public class GreetingResourceTest {
           .when().get("/testcase/1")
           .then()
              .statusCode(500)
-//             .body(is("{\"statusCode\":200,\"description\":\"OK\"}"))
         ;
     }
 

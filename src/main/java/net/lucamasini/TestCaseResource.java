@@ -41,27 +41,17 @@ public class TestCaseResource {
     @GET
     @Path("2")
     @Produces(MediaType.APPLICATION_JSON)
-    public Uni<ResponseFromMock> testCase2() /*throws MyCustomException*/ {
+    public Uni<ResponseFromMock> testCase2() throws MyCustomException {
         return mockService.callMock(401, new ResponseFromMock())
-                .onFailure().call(t -> {
-                    log.info("exception calling mock", t);
-
-                    return Uni.createFrom().item(new ResponseFromMock());
-                })
-                ;
+                .onFailure().transform(failure ->
+                new MyCustomException());
     }
 
     @GET
     @Path("3")
     @Produces(MediaType.APPLICATION_JSON)
     public Uni<ResponseFromMock> testCase3() throws MyCustomException {
-        return mockService.callMockForm(401, new ResponseFromMock())
-        .onFailure().call(t -> {
-            log.info("exception calling mock", t);
-
-            return Uni.createFrom().item(new ResponseFromMock());
-        })
-        ;
+        return mockService.callMockForm(401, new ResponseFromMock());
     }
 
     @GET
