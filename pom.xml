@@ -116,5 +116,14 @@
         </dependency>
       </dependencies>
     </profile>
+    <profile>
+      <id>quarkus2</id>
+      <properties>
+        <quarkus-plugin.version>2.0.0.Alpha1</quarkus-plugin.version>
+        <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
+        <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
+        <quarkus.platform.version>2.0.0.Alpha1</quarkus.platform.version>
+      </properties>
+    </profile>
   </profiles>
 </project>
