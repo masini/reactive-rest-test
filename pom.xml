@@ -17,8 +17,6 @@
     <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
     <quarkus.platform.version>1.13.2.Final</quarkus.platform.version>
     <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
-    <resteasy>quarkus-resteasy-jackson</resteasy>
-    <rest.client>quarkus-rest-client-jackson</rest.client>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -32,18 +30,6 @@
     </dependencies>
   </dependencyManagement>
   <dependencies>
-    <!--dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy-mutiny</artifactId>
-    </dependency-->
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>${resteasy}</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>${rest.client}</artifactId>
-    </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-arc</artifactId>
@@ -98,21 +84,36 @@
   <profiles>
     <profile>
       <id>reactive</id>
-      <properties>
-        <resteasy>quarkus-resteasy-reactive-jackson</resteasy>
-        <rest.client>quarkus-rest-client-reactive-jackson</rest.client>
-      </properties>
+      <dependencies>
+        <dependency>
+          <groupId>io.quarkus</groupId>
+          <artifactId>quarkus-resteasy-reactive-jackson</artifactId>
+          <version>${quarkus.platform.version}</version>
+        </dependency>
+        <dependency>
+          <groupId>io.quarkus</groupId>
+          <artifactId>quarkus-rest-client-reactive-jackson</artifactId>
+          <version>${quarkus.platform.version}</version>
+        </dependency>
+      </dependencies>
     </profile>
     <profile>
       <id>standard</id>
-      <properties>
-        <resteasy>quarkus-resteasy-jackson</resteasy>
-        <rest.client>quarkus-rest-client-jackson</rest.client>
-      </properties>
       <dependencies>
         <dependency>
           <groupId>io.quarkus</groupId>
           <artifactId>quarkus-resteasy-mutiny</artifactId>
+          <version>${quarkus.platform.version}</version>
+        </dependency>
+        <dependency>
+          <groupId>io.quarkus</groupId>
+          <artifactId>quarkus-resteasy-jackson</artifactId>
+          <version>${quarkus.platform.version}</version>
+        </dependency>
+        <dependency>
+          <groupId>io.quarkus</groupId>
+          <artifactId>quarkus-rest-client-jackson</artifactId>
+          <version>${quarkus.platform.version}</version>
         </dependency>
       </dependencies>
     </profile>
