@@ -8,6 +8,8 @@
 
 `./mvnw test -P standard`
 
+Add quarkus2 to test with 2.0.0.Alpha1
+
 ##Test 1
 ### What I expect
 The CustomClientExceptionHandler should intercept the 401 response and send a 500 to callers, the response is then forwarded by RESTEasy to the calling client
